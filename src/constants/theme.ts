@@ -61,5 +61,6 @@ export const Spacing = {
   six: 64,
 } as const;
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
+// Height of the screen area covered by the floating tab bar, measured from the bottom edge.
+export const BottomTabInset = Platform.select({ ios: 84, android: 80, default: 100 });
 export const MaxContentWidth = 800;

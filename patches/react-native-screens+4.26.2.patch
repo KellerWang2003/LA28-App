@@ -1,0 +1,17 @@
+diff --git a/node_modules/react-native-screens/ios/RNSScreenStackHeaderConfig.mm b/node_modules/react-native-screens/ios/RNSScreenStackHeaderConfig.mm
+index 1c84484..6fc16a8 100644
+--- a/node_modules/react-native-screens/ios/RNSScreenStackHeaderConfig.mm
++++ b/node_modules/react-native-screens/ios/RNSScreenStackHeaderConfig.mm
+@@ -523,6 +523,12 @@ + (void)updateViewController:(UIViewController *)vc
+   }
+   navitem.largeTitleDisplayMode =
+       config.largeTitle ? UINavigationItemLargeTitleDisplayModeAlways : UINavigationItemLargeTitleDisplayModeNever;
++  // LA28 patch: show large titles inline, on the same row as the bar button items (iOS 17+).
++  if (@available(iOS 17.0, *)) {
++    if (config.largeTitle) {
++      navitem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeInline;
++    }
++  }
+ #endif
+ 
+   UINavigationBarAppearance *appearance = [self buildAppearance:vc withConfig:config];

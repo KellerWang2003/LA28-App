@@ -8,7 +8,8 @@
     "scheme": "la28app",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.anonymous.la28-app"
     },
     "android": {
       "adaptiveIcon": {
@@ -31,6 +32,14 @@
           "backgroundColor": "#208AEF",
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
+        }
+      ],
+      "./plugins/with-scene-lifecycle",
+      "@rnmapbox/maps",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Show your location on the LA28 map."
         }
       ]
     ],
